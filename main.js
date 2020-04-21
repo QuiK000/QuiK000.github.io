@@ -1,14 +1,13 @@
 const video = document.querySelector('video');
 const turnON = document.querySelector('.turn-on');
-const turnOFF = document.querySelector('.turn-off');
 
-const options = {
-  video: true,
-  audio: true
-}
-
-function ON() {
+function TurnWebCam() {
   if (navigator.webkitGetUserMedia !== null) {
+
+    const options = {
+      video: true,
+      audio: true
+    }
 
     navigator.webkitGetUserMedia(options,
       (stream) => {
@@ -21,14 +20,4 @@ function ON() {
   }
 }
 
-function OFF() {
-  navigator.webkitGetUserMedia(options, (stream) => {
-    video.srcObject = null;
-    video.stop();
-  },(e) => {
-    console.error(`${e}`);
-  })
-}
-
-turnON.addEventListener('click', ON);
-turnOFF.addEventListener('click', OFF);
+turnON.addEventListener('click', TurnWebCam);
