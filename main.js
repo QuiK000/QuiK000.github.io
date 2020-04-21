@@ -4,7 +4,7 @@ const turnOFF = document.querySelector('.turn-off');
 
 var options = {
   video: true,
-  audio: true
+  audio: false
 }
 
 function ON() {
